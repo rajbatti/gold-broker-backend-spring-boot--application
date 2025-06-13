@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+package com.hugoserve.demo.proto.entity;
+option java_package = "com.hugoserve.demo.proto.entity";
+option java_multiple_files = true;
+import "google/protobuf/timestamp.proto";
+message HistoricPriceEntity {
+  google.protobuf.Timestamp date = 1;
+  string weight_unit = 2;
+  double close = 3;
+  double high = 4;
+  double low = 5;
+  double open = 6;
+  optional double ma50 = 7;
+  optional double ma200 = 8;
+  string metal=9;
+}

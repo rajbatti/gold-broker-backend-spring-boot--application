@@ -1,0 +1,13 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto.entity;
+option java_package = "com.hugoserve.demo.proto.entity";
+option java_multiple_files = true;
+
+message AssetEntity {
+  string username = 1; // Relation to User.username
+  string metal = 2;
+  double balance_g = 3;
+  double hold_balance_g = 4;
+  string create_ts = 5; // ISO timestamp string
+  string update_ts = 6; // ISO timestamp string
+}

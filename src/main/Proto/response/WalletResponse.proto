@@ -1,0 +1,16 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto.response;
+option java_package = "com.hugoserve.demo.proto.response";
+option java_multiple_files = true;
+
+message WalletResponseDTO{
+  double balance=1;
+  string currency=2;
+  string status =3;
+}
+message  WalletTrasactionResponseDTO{
+  string type = 1; // CREDIT or DEBIT
+  string created_at = 2;
+  string status=3;
+  double  balance=4;
+}

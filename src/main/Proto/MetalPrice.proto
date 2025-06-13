@@ -1,0 +1,45 @@
+
+syntax = "proto3";
+package com.hugoserve.demo.proto;
+
+option java_package = "com.hugoserve.demo.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto"; // Import the Timestamp type
+
+message HistoricalSpotPrice {
+  string date = 1;        // Date in ISO format (e.g., "2025-01-22")
+  string weight_unit = 2; // Unit of weight (e.g., "g")
+  double close = 3;       // Closing price
+  double high = 4;        // High price
+  double low = 5;         // Low price
+  double open = 6;        // Open price
+}
+message PriceDTO {
+  google.protobuf.Timestamp  date = 1;        // Date and time in ISO format
+  string weight_unit = 2; // Weight unit (e.g., "g")
+  double ask = 3;         // Ask price
+  double mid = 4;         // Mid price
+  double bid = 5;         // Bid price
+  double value = 6;       // Value
+  double performance = 7; // Performance metric
+}
+message MetalPriceDTO{
+  string metal = 1;       // Metal type (e.g., "XAG")
+  string currency = 2;    // Currency (e.g., "PKR")
+  string weight_unit = 3; // Weight unit (e.g., "g")
+
+  Embedded _embedded = 4; // Nested message for embedded data
+
+  message Embedded {
+    repeated PriceDTO items = 1; // Array of items
+
+    int32 markets_closed = 2; // Market status (0 for open, 1 for closed)
+
+    HistoricalSpotPrice last_historical_spot_price = 3; // Historical spot price
+
+
+
+
+  }
+}

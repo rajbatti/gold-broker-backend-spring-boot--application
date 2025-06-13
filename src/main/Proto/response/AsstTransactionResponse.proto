@@ -1,0 +1,15 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto.response;
+option java_package = "com.hugoserve.demo.proto.response";
+option java_multiple_files = true;
+
+
+message  AssetTrasactionResponseDTO{
+  string transactionId=1;
+  string metal = 2;
+  string type = 3;
+  double quantity=4;
+  double price=5;
+  string created_at=6;
+  string status =7;
+}

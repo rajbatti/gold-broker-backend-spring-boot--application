@@ -1,0 +1,13 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto.entity;
+option java_package = "com.hugoserve.demo.proto.entity";
+option java_multiple_files = true;
+
+message WalletEntity {
+  string wallet_id = 1;
+  string username = 2; // Relation to User.username
+  double balance = 3;// ISO currency code
+  string status = 5; // ACTIVE, INACTIVE, BLOCKED
+  string create_ts = 6; // ISO timestamp string
+  string update_ts = 7; // ISO timestamp string
+}

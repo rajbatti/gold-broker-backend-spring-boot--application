@@ -1,0 +1,15 @@
+
+syntax = "proto3";
+package com.hugoserve.demo.proto;
+
+option java_package = "com.hugoserve.demo.proto";
+option java_multiple_files = true;
+
+message MySQlRequest{
+  string sql=1;
+  repeated Param param=2;
+}
+message Param{
+  int32 index=1;
+  string paramname=2;
+}

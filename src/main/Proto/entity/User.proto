@@ -1,0 +1,8 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto.entity;
+option java_package = "com.hugoserve.demo.proto.entity";
+option java_multiple_files = true;
+message UserEntity {
+  string username = 1;
+  string password = 2;
+}

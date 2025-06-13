@@ -1,0 +1,24 @@
+
+syntax = "proto3";
+package com.hugoserve.demo.proto;
+option java_package = "com.hugoserve.demo.proto";
+option java_multiple_files = true;
+
+message BuyRequestDTO {
+  string metal=1;
+  double amount=2;
+}
+message SellRequestDTO{
+  string metal=1;
+  double amount=2;
+}
+
+
+message  AssetTrasactionRequestDTO{
+  string username=1;
+  string metal = 2;
+  string type = 3;
+  double quantity=4;
+  double price=5;
+  string wallet_transaction_id=6;
+}

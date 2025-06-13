@@ -1,0 +1,23 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto.entity;
+option java_package = "com.hugoserve.demo.proto.entity";
+option java_multiple_files = true;
+message AssetTransactionEntity {
+  string transaction_id = 1;
+  string username = 2; // Relation to User.username
+  string metal = 3;
+  string transaction_type = 4; // BUY or SELL
+  double quantity = 5;
+  double price = 6;
+  string created_at = 7;
+  string status=8;
+  string wallet_transaction_id=9;
+}
+message WalletTransactionEntity {
+  string transaction_id = 1;
+  string wallet_id = 2; // Relation to Wallet.wallet_id
+  string transaction_type = 3; // CREDIT or DEBIT
+  string created_at = 4;
+  string status=5;
+  double amount=6;// ISO timestamp string
+}

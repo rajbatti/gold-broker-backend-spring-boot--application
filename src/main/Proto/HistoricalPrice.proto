@@ -1,0 +1,38 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto;
+
+option java_package = "com.hugoserve.demo.proto";
+option java_multiple_files = true;
+import "google/protobuf/timestamp.proto";
+message DataDTO {
+  string date= 1;
+  string weight_unit = 2;
+  double close = 3;
+  double high = 4;
+  double low = 5;
+  double open = 6;
+  optional double ma50 = 7;
+  optional double ma200 = 8;
+}
+
+message PerformancesDTO {
+  double fiveD = 1 [json_name="5D"];
+  double oneM = 2 [json_name="1M"];
+  double YTD = 3 [json_name="YTD"];
+  double oneY = 4 [json_name="1Y"];
+  double fiveY = 5 [json_name="5Y"];
+  double tenY = 6 [json_name="10Y"];
+  double max = 7 [json_name="MAX"];
+}
+
+message Embedded {
+  repeated DataDTO items = 1;
+  PerformancesDTO performances = 2;
+}
+
+message HistoricPriceDTO{
+  string metal = 1;
+  string currency = 2;
+  string weight_unit = 3;
+  Embedded _embedded = 4;
+}

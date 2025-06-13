@@ -1,0 +1,9 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto;
+
+option java_package = "com.hugoserve.demo.proto";
+option java_multiple_files = true;
+
+message  RechargeDTO{
+  double amount=1;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package com.hugoserve.demo.proto;
+option java_package = "com.hugoserve.demo.proto";
+option java_multiple_files = true;
+import "google/protobuf/timestamp.proto";
+message MetalDataDTO {
+  string metal = 1;
+  string  currency=2;
+  google.protobuf.Timestamp date = 3; // ISO timestamp string
+  string weight_unit = 4;
+  double buy_price = 5;
+  double sell_price = 7;
+}
+
+message MetalDataPaginatedDTO{
+  repeated MetalDataDTO items=1;
+}
