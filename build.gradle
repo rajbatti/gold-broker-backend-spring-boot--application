@@ -1,0 +1,62 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.2-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.1.7'
+	id 'com.google.protobuf' version '0.9.4'
+}
+
+group = 'com.hugoserve'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'software.amazon.awssdk:sqs:2.30.12'
+	implementation 'software.amazon.awssdk:auth:2.30.12'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '4.29.2'
+	implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '4.28.3'
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-protobuf:2.18.2'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+
+
+
+
+
+sourceSets {
+	main {
+		java {
+//        srcDirs 'build/generated/source/proto/main/grpc'
+			srcDirs 'build/generated/source/proto/main/java'
+		}
+	}
+}
+
+protobuf {
+	protoc {
+		artifact = "com.google.protobuf:protoc:3.24.3" // Protoc compiler
+	}
+}
+tasks.named('test') {
+	useJUnitPlatform()
+}
